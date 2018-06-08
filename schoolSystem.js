@@ -21,8 +21,20 @@ School.prototype.addStudent = function(student){
     this.students.push(student);
     this.writeData(this.students);
 }
+
+School.prototype.getStudentIndex  = function(id){
+    this.students = this.getData();
+    for (let i = 0; i < this.students.length; i++){
+        if(this.students[i].id === id){
+            return i;
+        }
+    }
+}
 School.prototype.deleteStudent = function(id){
-    
+    this.students  = this.getData();
+    let index = this.getStudentIndex(id);
+    this.students.splice(index, 1);
+    this.writeData(this.students);
 }
 School.prototype.updateStudent = function(id, param, value){
     //update student record here
