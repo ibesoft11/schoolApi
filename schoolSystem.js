@@ -37,7 +37,24 @@ School.prototype.deleteStudent = function(id){
     this.writeData(this.students);
 }
 School.prototype.updateStudent = function(id, param, value){
-    //update student record here
+    this.students = this.getData();
+    let index = this.getStudentIndex(id);
+    if (arguments.length !=3){
+        return "Error - You must provide an ID, a parameter to edit and a value.";
+    } else {
+        if (arguments[1] == "name"){
+            this.students[index].name = value;
+        } else if (arguments[1] == "department"){
+            this.students[index].department = value;
+        } else if(arguments[1] == "level"){
+            this.students[index].level = value;
+        } else if (arguments[1] == "all"){
+            this.students[index] = value;
+        } else {
+            return "Error - You must specify what to update."
+        }
+        this.writeData(this.students);
+    }
 }
 School.prototype.getStudentById = function(id){
     //print student's data here
