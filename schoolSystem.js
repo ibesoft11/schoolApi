@@ -86,3 +86,6 @@ School.prototype.getStudents = function(param, value){
         return result;
     }
 }
+module.exports = function(name){
+    return new School(name);
+}
