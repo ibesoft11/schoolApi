@@ -65,9 +65,24 @@ School.prototype.getStudentById = function(id){
     }
 }
 School.prototype.getStudents = function(param, value){
+    this.students = this.getData();
+    var result = [];
     if (arguments.length == 0){
-        //get all students
+        return this.students;
     } else if (arguments.length == 2){
-        //get students that match the params
+        if (arguments[1] == "department"){
+            for (var i=0; i < this.students.length; i++){
+                if (this.students[i].department == value){
+                    result.push(this.students[i]);
+                }
+            }
+        } else if (arguments[1] == "level"){
+            for (var i=0; i < this.students.length; i++){
+                if (this.students[i].level == value){
+                    result.push(this.students[i]);
+                }
+            }
+        }
+        return result;
     }
 }
