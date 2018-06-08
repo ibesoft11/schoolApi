@@ -57,7 +57,12 @@ School.prototype.updateStudent = function(id, param, value){
     }
 }
 School.prototype.getStudentById = function(id){
-    //print student's data here
+    this.students = this.getData();
+    for (let i = 0; i < this.students.length; i++){
+        if(this.students[i].id === id){
+            return students[i];
+        }
+    }
 }
 School.prototype.getStudents = function(param, value){
     if (arguments.length == 0){
