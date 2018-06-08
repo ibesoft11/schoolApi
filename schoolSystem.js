@@ -17,11 +17,12 @@ School.prototype.student = function(name, department, level){
     this.level = level;
 }
 School.prototype.addStudent = function(student){
-
-    //add student here
+    this.students = this.getData();
+    this.students.push(student);
+    this.writeData(this.students);
 }
 School.prototype.deleteStudent = function(id){
-    //delete student here
+    
 }
 School.prototype.updateStudent = function(id, param, value){
     //update student record here
